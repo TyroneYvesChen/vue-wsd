@@ -74,6 +74,21 @@ module.exports = {
         test: /\.scss$/,
         loaders: ["style", "css", "sass"]
       }
+      // {
+      //   test: /\.scss$/,
+      //   use: [
+      //     'style-loader',
+      //     'css-loader',
+      //     'sass-loader',
+      //     {
+      //       loader: 'sass-resources-loader',
+      //       options: {
+      //         // Or array of paths
+      //         resources: ['../src/assets/styles/vars.scss']
+      //       },
+      //     },
+      //   ],
+      // },
     ]
   }
 }

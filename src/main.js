@@ -5,6 +5,7 @@ import App from './App'
 import router from './router'
 import store from './store/store'
 import fastclick from 'fastclick'
+import Mint from './mintUi';
 
 fastclick.attach(document.body)
 Vue.config.productionTip = false

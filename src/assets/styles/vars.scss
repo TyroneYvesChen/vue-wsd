@@ -1,7 +1,6 @@
 /* ==================================================
  * 			 		 全局Sass变量
  * ================================================= */
-
 //======= Colors
 $white-base:									#ffffff !default;
 
@@ -15,7 +14,7 @@ $black-base:									#4A4A4A !default;
 $yellow-base:									#FFCD00 !default;
 $yellow-active:									#FFB72C !default;
 
-$blue-base:										#0076FF !default;
+$blue-base:										#006ba3 !default;
 $blue-drak:										#356DFC !default;
 $blue-light:									#A2BBFC !default;
 
@@ -36,6 +35,8 @@ $bg-primary:									$yellow-base;
 $bg-cancel:										#C9CDD2;
 $bg-register:									$purple-base;
 
+$left-nav-bg:                 $blue-base;
+
 // Font  Color
 $gray-light-font:								$gray-minor;
 $remark-color:									#BABABA;
@@ -45,6 +46,9 @@ $gray-base-font:								#BEBEBE;
 $gray-minor-font:								#DCDCDC;
 $arrow-font:									$gray-line-default;
 $place-holder-font:								#C9CDD2;
+
+$left-nav-item-title:         #C7D1D6;
+$big-title:                   #FF8900;
 
 // Line  Color
 $base-line-color:								$gray-light;
@@ -58,4 +62,8 @@ $register-active:								$purple-active;
 // Width, Height, Padding, Margin
 $header-height:									40px;
 $bottom-height:									56px;
+$left-nav-width:                18%;
+$title-fontSize:                25px;
+$content-fontSize:              18px;
+$font-weight-default:       700;
 

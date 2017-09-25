@@ -135,6 +135,7 @@
         this.scroll && this.scroll.enable()
       },
       refresh() {
+        console.log(111);
         // 代理better-scroll的refresh方法
         this.scroll && this.scroll.refresh()
       },
@@ -160,5 +161,8 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang='scss' scoped rel="stylesheet/scss" type="text/css">
-
+  .wrapper{
+    overflow: hidden;
+    height: 100%;
+  }
 </style>

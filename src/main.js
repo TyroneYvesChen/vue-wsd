@@ -6,9 +6,18 @@ import router from './router'
 import store from './store/store'
 import fastclick from 'fastclick'
 import Mint from './mintUi';
+import axios from 'axios'
+import * as filters from './assets/js/filters';
 
+
+Vue.prototype.$http = axios
 fastclick.attach(document.body)
-Vue.config.productionTip = false
+Vue.config.productionTip = true
+
+
+Object.keys(filters).forEach((key) => {
+  Vue.filter(key, filters[key]);
+});
 
 /* eslint-disable no-new */
 new Vue({

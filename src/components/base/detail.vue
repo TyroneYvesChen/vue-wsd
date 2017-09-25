@@ -37,9 +37,10 @@ export default {
 <style lang='scss' scoped rel="stylesheet/scss" type="text/css">
   .detail{
     width: 100%;
-    font-weight: 700;
+    //font-weight: $font-weight-default;
     font-size: $content-fontSize;
     padding-bottom: 8px;
+    @include ell();
     .detail_name{
       width: 45%;
       text-align: right;

@@ -36,6 +36,11 @@ $bg-cancel:										#C9CDD2;
 $bg-register:									$purple-base;
 
 $left-nav-bg:                 $blue-base;
+$left-nav-sign:                 #0D72A8;
+$left-nav-img-bg:                 #07649D;
+$header-nav-bg:                 #E9EEF4;
+$right-wrap-bg:                 #D5E2EB;
+$item-bg:                       #ECF4F7;
 
 // Font  Color
 $gray-light-font:								$gray-minor;
@@ -47,8 +52,11 @@ $gray-minor-font:								#DCDCDC;
 $arrow-font:									$gray-line-default;
 $place-holder-font:								#C9CDD2;
 
-$left-nav-item-title:         #C7D1D6;
-$big-title:                   #FF8900;
+$left-nav-item-title:           #C7D1D6;
+$big-title:                     #FF8900;
+$font-color-default:            #626C75;
+$font-color-item:               #A2A9B1;
+$input-checked:                 #B9E7FF;
 
 // Line  Color
 $base-line-color:								$gray-light;
@@ -60,10 +68,24 @@ $primary-active:								$yellow-active;
 $register-active:								$purple-active;
 
 // Width, Height, Padding, Margin
-$header-height:									40px;
+$padding:                       20px 0px;
+$padding-small:                 10px 0px;
+$margin:                        10px 0px;
+
+
+
+$header-height:									80px;
 $bottom-height:									56px;
 $left-nav-width:                18%;
 $title-fontSize:                25px;
 $content-fontSize:              18px;
-$font-weight-default:       700;
-
+$font-weight-default:           700;
+$header-padding:                $padding;
+$header-wrap-padding:           0px 20px;
+$tool-padding:                  20px;
+$border-radius-default:         5px;
+$padding-twoSize-default:       0px 20px;
+$item-padding:                  20px 40px;
+$item-img:                      80px;
+$nav-tool-icon-size:            35px;
+$input-default:                 60px;

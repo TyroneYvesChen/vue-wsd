@@ -77,9 +77,6 @@ export default {
       color: $left-nav-item-title;
       .img_wrap{
         display: inline-block;
-        background-color: $left-nav-img-bg;
-        padding: 15px;
-        border-radius: 100%;
         img{
           margin: 0 auto;
           width: auto;

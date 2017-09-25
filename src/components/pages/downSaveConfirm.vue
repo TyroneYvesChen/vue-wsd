@@ -1,55 +1,66 @@
 <template>
   <div class="downSaveConfirm">
+
+    <right-content-tool-bar :toolBarObj="toolBarObj"></right-content-tool-bar>
+
     <ul class="item-wrap" v-infinite-scroll="loadMore" infinite-scroll-disabled="loading" infinite-scroll-distance="20">
-      <li v-for="item in list" class="item_li clearfix">
-        <div class="item-img col-2">
-          <img src="../../assets/img/materialsManage/box_01.png"/>
-        </div>
-        <div class="col-2 item-ch2">
-          <div class="bottom">
-            <div class="title">拉带</div>
-            <div class="small-content">单位：56只</div>
+
+      <transition-group enter-active-class="animated fadeIn">
+        <li v-for="item in list" class="item_li clearfix">
+          <div class="item-img col-2">
+            <img src="../../assets/img/materialsManage/box_01.png"/>
           </div>
-        </div>
-        <div class="col-2">
-          <div class="bottom">
-            <div class="small-content">结存最大值：10</div>
-          </div>
-        </div>
-        <div class="col-3">
-          <div class="bottom">
-            <div class="title-s">结存数量</div>
-            <div class="input">
-              <input type="text">
+          <div class="col-2 item-ch2">
+            <div class="bottom">
+              <div class="title">拉带</div>
+              <div class="small-content">单位：56只</div>
             </div>
           </div>
-        </div>
-        <div class="col-3">
-          <div class="bottom">
-            <div class="title-s">零头数</div>
-            <div class="input">
-              <input type="text" :class="{checked: checked}" @focus="checked = !checked" @blur="checked = !checked">
+          <div class="col-2">
+            <div class="bottom">
+              <div class="small-content">结存最大值：10</div>
             </div>
           </div>
-        </div>
-      </li>
+          <div class="col-3">
+            <div class="bottom">
+              <div class="title-s">结存数量</div>
+              <div class="input">
+                <input type="text">
+              </div>
+            </div>
+          </div>
+          <div class="col-3">
+            <div class="bottom">
+              <div class="title-s">零头数</div>
+              <div class="input">
+                <input type="text" :class="{checked: checked}" @focus="checked = !checked" @blur="checked = !checked">
+              </div>
+            </div>
+          </div>
+        </li>
+      </transition-group>
     </ul>
-    <p v-show="loading" class="page-infinite-loading">
-      <mt-spinner type="snake"></mt-spinner>
-      加载中...
-    </p>
+
+    <spinner></spinner>
+
   </div>
 </template>
 
 <script>
+  import rightContentToolBar from '../common/rightContentToolBar'
+  import spinner from '../base/spinner'
 export default {
   name: 'downSaveConfirm',
-  components: {},
+  components: {rightContentToolBar, spinner},
   data () {
     return {
       list: [0,1,,,,,,],
-      loading: true,
-      checked: true
+      loading: true,      //设置成false使用
+      checked: true,
+      toolBarObj: {
+        isSave: true,
+        topTitle: "挡车工材料校验"
+      }
     }
   },
   created (){
@@ -76,8 +87,9 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang='scss' rel="stylesheet/scss" type="text/css" scoped>
   .downSaveConfirm{
+    padding-bottom: 20px;
     .item-wrap{
-      padding: 10px 20px;
+      padding: $padding-twoSize-default;
       .item_li{
         margin: $margin;
         background-color: $item-bg;

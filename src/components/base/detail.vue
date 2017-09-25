@@ -14,8 +14,7 @@ export default {
       default (){
         return {
           name: "",
-          content: "",
-
+          content: ""
         }
       }
     }

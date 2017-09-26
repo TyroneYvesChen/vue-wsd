@@ -7,6 +7,7 @@ $white-base:									#ffffff !default;
 $gray-light:									#D7D7D7 !default;
 $gray-minor:									#9B9B9B !default;
 $gray-default:								    #D1D0CD !default;
+$gray-default2:                   #bbbbbb;
 $gray-line-default:								#D4D4D4 !default;
 
 $black-base:									#4A4A4A !default;
@@ -23,7 +24,6 @@ $red-light:										#FFB4B4 !default;
 
 $purple-base:									#8E50F6 !default;
 $purple-active:									#7F38F6 !default;
-
 // Primary Color
 $primary-color:									#31c27c !default;
 
@@ -37,10 +37,12 @@ $bg-register:									$purple-base;
 
 $left-nav-bg:                 $blue-base;
 $left-nav-sign:                 #0D72A8;
-$left-nav-img-bg:                 #07649D;
+$left-nav-img-bg:               #07649D;
 $header-nav-bg:                 #E9EEF4;
 $right-wrap-bg:                 #D5E2EB;
 $item-bg:                       #ECF4F7;
+$item-bg-checked:               #D5EDF9;
+$item-bg-unexecuted:            #E9E9E9;
 
 // Font  Color
 $gray-light-font:								$gray-minor;
@@ -57,6 +59,8 @@ $big-title:                     #FF8900;
 $font-color-default:            #626C75;
 $font-color-item:               #A2A9B1;
 $input-checked:                 #B9E7FF;
+$item-blue:                     #3DBCFF;
+
 
 // Line  Color
 $base-line-color:								$gray-light;

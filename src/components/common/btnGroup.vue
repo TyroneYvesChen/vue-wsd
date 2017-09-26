@@ -1,9 +1,9 @@
 <template>
   <div class="btnGroup">
-    <div class="btn technologyStandard">工艺标准</div>
-    <div class="btn workOrderEnd">工艺标准</div>
-    <div class="btn errorEnd">工艺标准</div>
-    <div class="btn outputEntering">工艺标准</div>
+    <div class="btn technologyStandard" @click.stop="tsBtnEvent">工艺标准</div>
+    <div class="btn workOrderEnd" @click.stop="woeBtnEvent">工单结束</div>
+    <div class="btn errorEnd" @click.stop="eeBtnEvent">异常终止</div>
+    <div class="btn outputEntering" @click.stop="oeBtnEvent">产量录入</div>
   </div>
 </template>
 
@@ -28,6 +28,18 @@ export default {
   created (){
   },
   methods: {
+    tsBtnEvent (){
+      this.$emit('technologyStandard')
+    },
+    woeBtnEvent (){
+      this.$emit('workOrderEnd')
+    },
+    eeBtnEvent (){
+      this.$emit('errorEnd')
+    },
+    oeBtnEvent (){
+      this.$emit('outputEntering')
+    }
   }
 }
 </script>
@@ -44,7 +56,7 @@ export default {
       font-size: $content-fontSize;
       margin: $margin-btnGroup;
       &.technologyStandard{
-        background: url("../../assets/img/workOrderManage/technologyStandard.png") no-repeat 10px center #3DBCFF;
+        background: url("../../assets/img/workOrderManage/technologyStandard.png") no-repeat 10px center $item-blue;
         background-size: 18%;
       }
       &.workOrderEnd{

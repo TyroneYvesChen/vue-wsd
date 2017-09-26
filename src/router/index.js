@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import text from '@/components/text'
 import downSaveConfirm from '@/components/pages/downSaveConfirm'
 import workOrderManage from '@/components/pages/workOrderManage'
+import cardTaskName from '@/components/pages/cardTaskName'
 
 Vue.use(Router)
 
@@ -11,7 +12,7 @@ export default new Router({
     {
       path: '/',
       name: 'index',
-      component: workOrderManage
+      component: cardTaskName
     },
     {
       path: '/text',
@@ -27,6 +28,11 @@ export default new Router({
       path: '/workOrderManage',
       name: 'workOrderManage',
       component: workOrderManage
+    },
+    {
+      path: '/cardTaskName',
+      name: 'cardTaskName',
+      component: cardTaskName
     },
     {
       path: '*',

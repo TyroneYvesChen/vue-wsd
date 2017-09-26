@@ -9,6 +9,15 @@
   white-space: nowrap;
 }
 
+@mixin lineNum($num) {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $num;
+  overflow: hidden;
+}
+
+
+
 @mixin minHeight($min-height) {
   min-height: $min-height;
   height: auto !important;
@@ -70,6 +79,7 @@ $color) {
   padding-right: 15px;
   padding-left: 15px;
   float: left;
+  box-sizing: border-box;
 }
 
 @mixin col($number)

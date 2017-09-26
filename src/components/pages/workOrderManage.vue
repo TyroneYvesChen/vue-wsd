@@ -106,14 +106,15 @@ export default {
     .item-wrap{
       padding: $padding-twoSize-default;
       .item_li{
-        transition: height 1s linear;
+        transition: all .5s;
+        border-radius: $border-radius-default;
         margin: $margin-large;
         background-color: $item-bg;
         padding: $item-padding;
         text-align: left;
         height: auto;
         &.checked{
-          background-color: #D5EDF9;
+          background-color: $item-bg-checked;
         }
 
 
@@ -165,14 +166,5 @@ export default {
         }
       }
     }
-    .fade-enter-active, .fade-leave-active{
-      transition: all 0.5s ease;
-    }
-
-  .fade-enter, .fade-leave-active{
-    opacity: 0;
-  }
-
-
   }
 </style>

@@ -6,7 +6,7 @@
     <ul class="item-wrap" v-infinite-scroll="loadMore" infinite-scroll-disabled="loading" infinite-scroll-distance="20">
 
       <transition-group enter-active-class="animated fadeIn">
-        <li v-for="item in list" class="item_li clearfix">
+        <li v-for="(item, index) in list" class="item_li clearfix" :key="index">
           <div class="item-img col-2">
             <img src="../../assets/img/materialsManage/box_01.png"/>
           </div>
@@ -91,6 +91,8 @@ export default {
     .item-wrap{
       padding: $padding-twoSize-default;
       .item_li{
+        transition: all 0.5s;
+        border-radius: $border-radius-default;
         margin: $margin;
         background-color: $item-bg;
         padding: $item-padding;

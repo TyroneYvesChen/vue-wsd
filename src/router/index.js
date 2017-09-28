@@ -4,6 +4,8 @@ import text from '@/components/text'
 import downSaveConfirm from '@/components/pages/downSaveConfirm'
 import workOrderManage from '@/components/pages/workOrderManage'
 import cardTaskName from '@/components/pages/cardTaskName'
+import planDetails from '@/components/pages/planDetails'
+import qualityExamine from '@/components/pages/qualityExamine'
 
 Vue.use(Router)
 
@@ -12,7 +14,7 @@ export default new Router({
     {
       path: '/',
       name: 'index',
-      component: cardTaskName
+      component: planDetails
     },
     {
       path: '/text',
@@ -33,6 +35,16 @@ export default new Router({
       path: '/cardTaskName',
       name: 'cardTaskName',
       component: cardTaskName
+    },
+    {
+      path: '/planDetails',
+      name: 'planDetails',
+      component: planDetails
+    },
+    {
+      path: '/qualityExamine',
+      name: 'qualityExamine',
+      component: qualityExamine
     },
     {
       path: '*',

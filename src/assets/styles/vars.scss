@@ -60,7 +60,9 @@ $font-color-default:            #626C75;
 $font-color-item:               #A2A9B1;
 $input-checked:                 #B9E7FF;
 $item-blue:                     #3DBCFF;
-
+$item-yes:                      #FE4801;
+$item-yes-bg:                   #FADE7D;
+$item-font-unexecuted:          #BCBCBC;
 
 // Line  Color
 $base-line-color:								$gray-light;
@@ -78,12 +80,15 @@ $padding-small2:                5px 0px;
 $margin:                        10px 0px;
 $margin-large:                  20px 0px;
 $margin-btnGroup:               10px 5px;
+$padding-all-small:             10px;
+$padding-all:                   20px;
 
 $header-height:									80px;
 $bottom-height:									56px;
 $left-nav-width:                18%;
 $title-fontSize:                24px;
 $content-fontSize:              18px;
+$content-fontSize-small:        16px;
 $font-weight-default:           700;
 $header-padding:                $padding;
 $header-wrap-padding:           0px 20px;

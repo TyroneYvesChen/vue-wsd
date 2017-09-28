@@ -82,8 +82,7 @@ $color) {
   box-sizing: border-box;
 }
 
-@mixin col($number)
-{
+@mixin col($number) {
   @for $index from 1 through $number
   {
     .col-#{$index}

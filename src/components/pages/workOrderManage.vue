@@ -23,11 +23,11 @@
                   </div>
 
                   <transition enter-active-class="animated bounceInLeft" leave-active-class="animated bounceOutRight">
-                    <div class="real_time" v-if="isChecked">
-                      <img src="../../assets/img/workOrderManage/real-icon.png" alt="">
-                      <span>实际：</span>
-                      <span>05-12 14:10 — 05-12 14:10</span>
-                    </div>
+                    <div class="real_time" v-show="isChecked">
+                        <img src="../../assets/img/workOrderManage/real-icon.png" alt="">
+                        <span>实际：</span>
+                        <span>05-12 14:10 — 05-12 14:10</span>
+                      </div>
                   </transition>
                 </div>
 
@@ -41,7 +41,7 @@
 
             <div class="btn_group">
               <transition enter-active-class="animated fadeIn" leave-active-class="animated fadeOut">
-                <btn-group v-if="isChecked"></btn-group>
+                  <btn-group v-show="isChecked"></btn-group>
               </transition>
             </div>
 

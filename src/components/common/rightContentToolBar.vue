@@ -2,7 +2,7 @@
   <div class="rightContentToolBar clearfix">
     <div class="col-2 returnBack" @click="returnBack">< 返回</div>
     <div class="col-8">{{ toolBarObj.topTitle }}</div>
-    <div class="col-2 save" v-if="toolBarObj.isSave">保存</div>
+    <div class="col-2 save" v-if="toolBarObj.isSave" @click="save">保存</div>
   </div>
 </template>
 
@@ -34,7 +34,7 @@ export default {
       this.$router.go(-1)
     },
     save (){
-      this.$emit('save')
+      this.$emit('saveEvent')
     }
   },
   mounted() {

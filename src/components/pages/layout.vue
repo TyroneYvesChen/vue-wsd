@@ -9,7 +9,11 @@
       <right-header-nav></right-header-nav>
       <div class="right_content">
         <div class="router-bg">
-          <router-view></router-view>
+          <transition enter-active-class="animated rollIn">
+            <keep-alive>
+              <router-view></router-view>
+            </keep-alive>
+          </transition>
         </div>
       </div>
     </div>

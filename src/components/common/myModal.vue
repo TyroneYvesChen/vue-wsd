@@ -80,7 +80,7 @@ export default {
 <style lang='scss' scoped rel="stylesheet/scss" type="text/css">
   //模态框
   .mint-popup-1 {
-    width: 200px;
+    width: auto;
     border-radius: 8px;
     padding: 10px;
     transform: translate(-50%, 0);

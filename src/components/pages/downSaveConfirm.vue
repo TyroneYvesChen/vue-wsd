@@ -1,6 +1,9 @@
 <template>
   <div class="downSaveConfirm" @click="closeModal($event)">
 
+    <my-modal :isShow="true">
+      <date-picker></date-picker>
+    </my-modal>
     <right-content-tool-bar :toolBarObj="toolBarObj" @saveEvent="saveEvent"></right-content-tool-bar>
 
     <ul class="item-wrap" v-infinite-scroll="loadMore" infinite-scroll-disabled="loading" infinite-scroll-distance="20">
@@ -63,10 +66,11 @@
 <script>
   import rightContentToolBar from '../common/rightContentToolBar'
   import myModal from '../common/myModal'
+  import datePicker from '../common/datePicker'
   import spinner from '../base/spinner'
 export default {
   name: 'downSaveConfirm',
-  components: {rightContentToolBar, spinner, myModal},
+  components: {rightContentToolBar, spinner, myModal, datePicker},
   data () {
     return {
       isShow: false,

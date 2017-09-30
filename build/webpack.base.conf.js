@@ -9,7 +9,9 @@ function resolve (dir) {
 
 module.exports = {
   entry: {
-    app: './src/main.js'
+    // app: ['./src/main.js', './src/vendor/hammer.js'],
+    app: './src/main.js',
+    // hammer: './src/vendor/hammer.js'
   },
   output: {
     path: config.build.assetsRoot,
@@ -18,6 +20,9 @@ module.exports = {
       ? config.build.assetsPublicPath
       : config.dev.assetsPublicPath
   },
+  // externals: {
+  //   Hammer: 'Hammer'
+  // },
   resolve: {
     extensions: ['.js', '.vue', '.json'],
     alias: {

@@ -110,6 +110,9 @@ export default {
       this.isShow = false
     },
     loadMore() {
+      if (this.loading) {
+        return false
+      }
       this.loading = true;
       setTimeout(() => {
         let last = this.list[this.list.length - 1];

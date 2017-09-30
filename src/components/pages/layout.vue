@@ -1,7 +1,7 @@
 <template>
   <div class="wrap clearfix">
     <!--左侧导航栏start-->
-    <left-nav></left-nav>
+    <left-nav id="left_nav"></left-nav>
     <!--左侧导航栏end-->
 
     <!--右侧router-->
@@ -9,14 +9,13 @@
       <right-header-nav></right-header-nav>
       <div class="right_content">
         <div class="router-bg">
-          <keep-alive>
             <transition enter-active-class="animated rollIn">
               <router-view></router-view>
             </transition>
-          </keep-alive>
         </div>
       </div>
     </div>
+
   </div>
 </template>
 
@@ -24,18 +23,19 @@
   import {mapGetters} from 'vuex'
   import leftNav from '../common/leftNav'
   import rightHeaderNav from '../common/rightHeaderNav'
+
 export default {
   name: 'layout',
   components: {leftNav, rightHeaderNav},
   data () {
     return {
-      msg: 'YC1313123',
-      aaa: "hoo~"
+
     }
   },
   created (){
   },
   methods: {
+
   }
 }
 </script>
@@ -45,7 +45,11 @@ export default {
   .wrap{
     width: 100%;
     overflow: hidden;
-
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    right: 0px;
 
 
     .right_wrap {

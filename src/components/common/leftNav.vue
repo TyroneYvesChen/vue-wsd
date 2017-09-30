@@ -32,18 +32,46 @@
         <left-nav-sign></left-nav-sign>
       </div>
     </div>
+
+    <!--<van-popup v-model="popupVisible" position="bottom">-->
+      <!--<div class="vanSlider">-->
+        <!--<van-swipe>-->
+          <!--<van-swipe-item v-for="(img, index) in images" :key="index">-->
+            <!--{{index}}-->
+          <!--</van-swipe-item>-->
+        <!--</van-swipe>-->
+      <!--</div>-->
+    <!--</van-popup>-->
+    <mt-popup
+      v-model="popupVisible"
+      position="bottom">
+      <div class="vanSlider">sdsadsadasd</div>
+    </mt-popup>
   </div>
 </template>
 
 <script>
+  import Vue from 'vue'
   import detail from '../base/detail'
   import leftNavSign from '../base/leftNavSign'
-export default {
+  import Hammer from '../../vendor/hammer'
+
+  import { Popup, Swipe, SwipeItem} from 'vant';
+
+  Vue.component(Swipe.name, Swipe);
+  Vue.component(SwipeItem.name, SwipeItem);
+  Vue.component(Popup.name, Popup);
+  export default {
   name: 'left_nav_wrap',
   components: {detail, leftNavSign},
   data () {
     return {
-
+      popupVisible: false,
+      arr:[,,,],
+      images: [
+        'https://img.yzcdn.cn/upload_files/2017/03/14/FmTPs0SeyQaAOSK1rRe1sL8RcwSY.jpeg',
+        'https://img.yzcdn.cn/upload_files/2017/03/15/FvexrWlG_WxtCE9Omo5l27n_mAG_.jpeg'
+      ]
     }
   },
   computed: {
@@ -54,6 +82,20 @@ export default {
   },
   methods: {
 
+  },
+  mounted() {
+    console.log(Hammer)
+    let _this = this
+    let dom = document.querySelector("#left_nav")
+    let h = new Hammer(dom)
+    h.on('panup', function(ev) {
+      _this.popupVisible = true
+      console.log(ev);
+    });
+    h.on('pandown', function(ev) {
+      console.log(ev);
+      _this.popupVisible = false
+    });
   }
 }
 </script>
@@ -124,6 +166,12 @@ export default {
         display: inline-block;
         border-radius: 100%;
       }
+    }
+    .vanSlider{
+      background-color: #31c27c;
+      font-size: 35px;
+      height: 300px;
+      width: 100%;
     }
   }
 </style>

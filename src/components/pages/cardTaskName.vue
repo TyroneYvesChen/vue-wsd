@@ -3,7 +3,7 @@
 
     <right-content-tool-bar :toolBarObj="toolBarObj"></right-content-tool-bar>
 
-    <ul class="item-wrap" v-infinite-scroll="loadMore" infinite-scroll-disabled="loading" infinite-scroll-distance="20">
+    <ul class="item-wrap" v-infinite-scroll="loadMore_ctn" infinite-scroll-disabled="loading_ctn" infinite-scroll-distance="20">
 
       <transition-group enter-active-class="animated fadeIn">
         <li v-for="(item, index) in list" class="item_li clearfix" @click="liClickEvent($event)"
@@ -43,7 +43,7 @@ export default {
   data () {
     return {
       list: [0,1,,,,,,],
-      loading: false,      //设置成false使用
+      loading_ctn: false,      //设置成false使用
       toolBarObj: {
         isSave: false,
         topTitle: "调牌任务名称"
@@ -59,14 +59,17 @@ export default {
       if (e.currentTarget.classList.contains("unexecuted")) return
       this.isChecked = !this.isChecked
     },
-    loadMore() {
-      this.loading = true;
+    loadMore_ctn() {
+      if (this.loading_ctn) {
+        return false
+      }
+      this.loading_ctn = true;
       setTimeout(() => {
         let last = this.list[this.list.length - 1];
         for (let i = 1; i <= 10; i++) {
           this.list.push(last + i);
         }
-        this.loading = false;
+        this.loading_ctn = false;
       }, 1000);
     }
   },

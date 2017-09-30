@@ -3,6 +3,7 @@
             popup-transition="popup-fade"
             class="mint-popup-1"
             :modal="isModal"
+            :position="position"
             :closeOnClickModal="isCloseOnClickModal"
             :style="styleObj"
             @click.native.stop>
@@ -38,6 +39,10 @@ export default {
     isCloseOnClickModal: {
       type: Boolean,
       default: false
+    },
+    position: {
+      type: String,
+      default: ""
     }
   },
   data () {

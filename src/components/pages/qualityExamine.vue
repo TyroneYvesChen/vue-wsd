@@ -51,12 +51,6 @@
                       条盒外封、条封
                     </div>
                   </li>
-                  <li class="item_li_checked">
-                    <div class="item_li_bg">
-                      <img src="../../assets/img/qualityExamine/star.png">
-                      条盒外封、条封
-                    </div>
-                  </li>
                 </ul>
 
               </div>
@@ -71,31 +65,31 @@
                 <ul class="item_details col-10 clearfix">
                   <li class="item_li_checked">
                     <div class="item_li_bg">
-                      <img src="../../assets/img/qualityExamine/star.png">
+                      <img src="../../assets/img/qualityExamine/yes.png">
                       条盒外封、条封
                     </div>
                   </li>
                   <li class="item_li_checked">
                     <div class="item_li_bg">
-                      <img src="../../assets/img/qualityExamine/star.png">
+                      <img src="../../assets/img/qualityExamine/yes.png">
                       条盒外封、条封
                     </div>
                   </li>
                   <li class="item_li_checked">
                     <div class="item_li_bg">
-                      <img src="../../assets/img/qualityExamine/star.png">
+                      <img src="../../assets/img/qualityExamine/yes.png">
                       条盒外封、条封
                     </div>
                   </li>
                   <li class="item_li_checked">
                     <div class="item_li_bg">
-                      <img src="../../assets/img/qualityExamine/star.png">
+                      <img src="../../assets/img/qualityExamine/yes.png">
                       条盒外封、条封
                     </div>
                   </li>
                   <li class="item_li_checked">
                     <div class="item_li_bg">
-                      <img src="../../assets/img/qualityExamine/star.png">
+                      <img src="../../assets/img/qualityExamine/yes.png">
                       条盒外封、条封
                     </div>
                   </li>
@@ -138,19 +132,19 @@
                   </li>
                   <li class="item_li_unchecked checked">
                     <div class="item_li_bg">
-                      <img src="../../assets/img/qualityExamine/star.png">
+                      <img src="../../assets/img/qualityExamine/yes.png">
                       条盒外封、条封
                     </div>
                   </li>
                   <li class="item_li_unchecked checked">
                     <div class="item_li_bg">
-                      <img src="../../assets/img/qualityExamine/star.png">
+                      <img src="../../assets/img/qualityExamine/yes.png">
                       条盒外封、条封
                     </div>
                   </li>
                   <li class="item_li_unchecked checked">
                     <div class="item_li_bg">
-                      <img src="../../assets/img/qualityExamine/star.png">
+                      <img src="../../assets/img/qualityExamine/yes.png">
                       条盒外封、条封
                     </div>
                   </li>
@@ -166,6 +160,24 @@
                 </div>
 
                 <ul class="item_details col-10 clearfix">
+                  <li class="item_li_unchecked">
+                    <div class="item_li_bg">
+                      <img src="../../assets/img/qualityExamine/star.png">
+                      条盒外封、条封
+                    </div>
+                  </li>
+                  <li class="item_li_unchecked">
+                    <div class="item_li_bg">
+                      <img src="../../assets/img/qualityExamine/star.png">
+                      条盒外封、条封
+                    </div>
+                  </li>
+                  <li class="item_li_unchecked">
+                    <div class="item_li_bg">
+                      <img src="../../assets/img/qualityExamine/star.png">
+                      条盒外封、条封
+                    </div>
+                  </li>
                   <li class="item_li_unchecked">
                     <div class="item_li_bg">
                       <img src="../../assets/img/qualityExamine/star.png">
@@ -206,17 +218,16 @@
             <li class="item_li_new" v-for="( item, index ) in list"
                 :class="{checked: index === liInedx}" :key="index"
                 @click="toolClick(index)"
+                :title="item.img"
                 v-if="isRightNavShow">
-              <img src="../../assets/img/qualityExamine/circle.png">
-              加密检查正常
+              <img :src="require('../../assets/img/qualityExamine/' + item.img + '.png')" />
+              <!--<img :src="'../../../static/img/qualityExamine/' + item.img + '.png'" />-->
+              {{ item.value }}
             </li>
           </transition-group>
         </keep-alive>
       </ul>
     </div>
-
-
-    <spinner></spinner>
 
   </div>
 </template>
@@ -229,7 +240,13 @@ export default {
   components: {rightContentToolBar, spinner},
   data () {
     return {
-      list: [0,1,,,],
+      list: [
+        {value: "加密检查正常",img: "circle"},
+        {value: "首检正常",img: "first_normal"},
+        {value: "正常",img: "yes"},
+        {value: "加密检查正常",img: "hollow_circle"},
+        {value: "首检异常",img: "first_unusual"},
+      ],
       loading: true,      //设置成false使用
       checkedObi: {},
       liInedx: null,

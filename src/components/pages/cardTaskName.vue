@@ -6,22 +6,20 @@
     <ul class="item-wrap" v-infinite-scroll="loadMore_ctn" infinite-scroll-disabled="loading_ctn" infinite-scroll-distance="20">
 
       <transition-group enter-active-class="animated fadeIn">
-        <li v-for="(item, index) in list" class="item_li clearfix" @click="liClickEvent($event)"
-            :class="{checked: isChecked, unexecuted: index === 0}" :key="index">
+        <li v-for="(item, index) in list" class="item_li clearfix" @click="liClickEvent($event, index)"
+            :class="{checked: isCheckedObj[index], unexecuted: index === 0}" :key="index">
 
           <div class="col-2 task_step">
             <div class="step_num">1</div>
             <div class="step_name">吊牌前</div>
           </div>
-          <div class="col-7 task_content">我是内容我是内容我是内容我是内容我是内容我是内容
-            我是内容我是内容我是内容我是内容！！！</div>
-          <div class="col-3 task_box" :class="{checked: isChecked}">
+          <div class="col-7 task_content">我是第{{index}}行内容！！！</div>
+          <div class="col-3 task_box" :class="{checked: isCheckedObj[index]}">
             <div class="box_operation">材料工</div>
-            <div class="box_operation">值班长</div>
           </div>
 
-          <div class="li_line" v-if="isChecked"></div>
-          <div class="line_dash" v-if="isChecked"></div>
+          <div class="li_line" v-if="isCheckedObj[index]"></div>
+          <div class="line_dash" v-if="isCheckedObj[index]"></div>
         </li>
       </transition-group>
 
@@ -48,16 +46,21 @@ export default {
         isSave: false,
         topTitle: "调牌任务名称"
       },
-      isChecked: false
+      isChecked: false,
+      isCheckedObj: {}
     }
   },
   created (){
 
   },
   methods: {
-    liClickEvent (e){
+    liClickEvent (e, index){
       if (e.currentTarget.classList.contains("unexecuted")) return
-      this.isChecked = !this.isChecked
+//      this.isChecked = !this.isChecked
+      for (let k in this.isCheckedObj){
+        this.isCheckedObj[k] = false
+      }
+      this.$set(this.isCheckedObj,index,!this.isCheckedObj[index])
     },
     loadMore_ctn() {
       if (this.loading_ctn) {

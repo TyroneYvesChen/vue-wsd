@@ -1,9 +1,10 @@
 <template>
   <div class="downSaveConfirm" @click="closeModal($event)">
 
-    <my-modal :isShow="true">
-      <date-picker></date-picker>
-    </my-modal>
+    <!--<my-modal :isShow="pickerShow">-->
+      <!--<div>sdasd</div>-->
+      <!--<date-picker></date-picker>-->
+    <!--</my-modal>-->
     <right-content-tool-bar :toolBarObj="toolBarObj" @saveEvent="saveEvent"></right-content-tool-bar>
 
     <ul class="item-wrap" v-infinite-scroll="loadMore" infinite-scroll-disabled="loading" infinite-scroll-distance="20">
@@ -28,7 +29,11 @@
             <div class="bottom">
               <div class="title-s">结存数量</div>
               <div class="input">
-                <input type="text" class="modalDom" @focus="showModal(index)" ref="modalInput">
+                <input type="text" class="modalDom"
+                       :class="{checked: !isCheckedObj[index]}"
+                       @focus="isCheckedEvent($event, index)"
+                       @blur="isCheckedEvent($event, index)"
+                       ref="modalInput">
               </div>
             </div>
           </div>
@@ -36,7 +41,9 @@
             <div class="bottom">
               <div class="title-s">零头数</div>
               <div class="input">
-                <input type="text" :class="{checked: checked}" @focus="checked = !checked" @blur="checked = !checked">
+                <input type="text" :class="{checked: !isCheckedObj2[index]}"
+                       @focus="isCheckedEvent($event, index, 2)"
+                       @blur="isCheckedEvent($event, index, 2)">
               </div>
             </div>
           </div>
@@ -82,15 +89,24 @@ export default {
         topTitle: "挡车工材料校验"
       },
       index: 0,
-      inputDom: null
+      inputDom: null,
+      pickerShow: false,
+      isCheckedObj: {},
+      isCheckedObj2: {}
     }
   },
   created (){
 
   },
   methods: {
+    isCheckedEvent (e, index, type){
+      let objName = type ? `isCheckedObj${type}` : "isCheckedObj"
+      console.log(objName)
+      this.$set(this[objName],index,!this[objName][index])
+      !type && this.showModal(index)
+    },
     saveEvent (){
-      console.log(111)
+      this.pickerShow = true
     },
     handleChange(value) {
       Toast({
@@ -143,7 +159,7 @@ export default {
         padding: $item-padding;
         text-align: left;
         >div{
-          height: 110px;
+          height: 100px;
           box-sizing: border-box;
         }
         .item-img{

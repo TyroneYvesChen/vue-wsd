@@ -53,9 +53,6 @@
 
 
 
-
-
-    <spinner></spinner>
   </div>
 </template>
 
@@ -133,7 +130,7 @@ export default {
   }
 
   .planDetails{
-    padding-bottom: 20px;
+    /*padding-bottom: 20px;*/
     height: 100%;
     width: 100%;
     .details_wrap{
@@ -141,7 +138,8 @@ export default {
       height: 100%;
       width: 100%;
       .details_item{
-        height: 50%;
+        /*height: 50%;*/
+        height: 100%;
         padding: $padding-all-small;
 
         .ul_wrap{

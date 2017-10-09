@@ -13,7 +13,7 @@
       <detail :detailOptions="{name:'生产日期：', content: '2016-01-01'}"></detail>
     </div>
     <div class="left_nav_item">
-      <div class="item_title color-orange">中华（软）条烟</div>
+      <div class="item_title color-orange">中华条烟中华条烟中华条烟十五字</div>
       <div class="item_content">234567_dfghjnmk_34567</div>
       <detail :detailOptions="{name:'工作状态：', content:'运行'}"></detail>
       <detail :detailOptions="{name:'生产标识：', content:'正常'}"></detail>
@@ -114,20 +114,20 @@
     overflow: hidden;
     .left_nav_item{
       display: block;
-      padding: 10px 2px;
+      padding: 5px 2px 0px;
       text-decoration: none;
       color: $left-nav-item-title;
       .img_wrap{
         display: inline-block;
         img{
           margin: 0 auto;
-          width: auto;
+          width: 60%;
         }
       }
 
 
       .item_title{
-        @include ell();
+//        @include ell();
         //font-weight: $font-weight-default;
         font-size: $title-fontSize;
         padding: 10px;

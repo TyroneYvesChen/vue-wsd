@@ -41,7 +41,7 @@ export default {
     float: left;
     width: 50%;
     height: 100%;
-    font-size: $content-fontSize;
+    font-size: $content-fontSize-small;
     background-color: $left-nav-sign;
     border: 2px solid $left-nav-bg;
     padding: 10px 0px;
@@ -54,7 +54,7 @@ export default {
       font-size: $title-fontSize;
       font-weight: $font-weight-default;
       color: $white-base;
-      padding: 15px 0 10px 0;
+      padding: $padding-small2;
       @include ell();
     }
     .unit{

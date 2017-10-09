@@ -2,9 +2,8 @@
 * {
   box-sizing: border-box;
   cursor: pointer;
-
+  touch-action: manipulation;
 }
-
 ol,
 ul {
   list-style: none;

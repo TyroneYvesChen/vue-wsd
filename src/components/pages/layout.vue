@@ -9,7 +9,7 @@
       <right-header-nav></right-header-nav>
       <div class="right_content">
         <div class="router-bg">
-            <transition enter-active-class="animated rollIn">
+            <transition enter-active-class="animated fadeIn">
               <router-view></router-view>
             </transition>
         </div>

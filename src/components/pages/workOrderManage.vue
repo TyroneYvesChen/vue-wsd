@@ -5,10 +5,10 @@
     <ul class="item-wrap" v-infinite-scroll="loadMore" infinite-scroll-disabled="loading" infinite-scroll-distance="20">
 
       <transition-group enter-active-class="animated fadeIn">
-          <li v-for="(item, index) in list" class="item_li clearfix" @click="liClickEvent" :class="{checked: isChecked}" :key="index">
+          <li v-for="(item, index) in list" class="item_li clearfix" @click="liClickEvent($event, index)" :class="{checked: isCheckedObj[index]}" :key="index">
             <div class="content_detail">
               <div class="detail_title clearfix">
-                <div class="col-6" :class="{checked: isChecked}">熊猫熊猫熊猫熊猫熊猫熊猫熊猫</div>
+                <div class="col-6" :class="{checked: isCheckedObj[index]}">熊猫熊猫熊猫熊猫熊猫熊猫熊猫</div>
                 <div class="col-6 state">状态：等待</div>
               </div>
 
@@ -23,7 +23,7 @@
                   </div>
 
                   <transition enter-active-class="animated bounceInLeft" leave-active-class="animated bounceOutRight">
-                    <div class="real_time" v-show="isChecked">
+                    <div class="real_time" v-show="isCheckedObj[index]">
                         <img src="../../assets/img/workOrderManage/real-icon.png" alt="">
                         <span>实际：</span>
                         <span>05-12 14:10 — 05-12 14:10</span>
@@ -41,7 +41,7 @@
 
             <div class="btn_group">
               <transition enter-active-class="animated fadeIn" leave-active-class="animated fadeOut">
-                  <btn-group v-show="isChecked"></btn-group>
+                  <btn-group v-show="isCheckedObj[index]"></btn-group>
               </transition>
             </div>
 
@@ -72,15 +72,20 @@ export default {
         isSave: false,
         topTitle: "工单管理"
       },
-      isChecked: false
+      isChecked: false,
+      isCheckedObj: {}
     }
   },
   created (){
 
   },
   methods: {
-    liClickEvent (){
-      this.isChecked = !this.isChecked
+    liClickEvent (e, index){
+//      this.isChecked = !this.isChecked
+      for (let k in this.isCheckedObj){
+        this.isCheckedObj[k] = false
+      }
+      this.$set(this.isCheckedObj,index,!this.isCheckedObj[index])
     },
     loadMore() {
       if (this.loading) {

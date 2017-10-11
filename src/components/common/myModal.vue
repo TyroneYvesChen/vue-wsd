@@ -1,5 +1,5 @@
 <template>
-  <mt-popup v-model="isShow"
+  <mt-popup v-model="myShow"
             popup-transition="popup-fade"
             class="mint-popup-1"
             :modal="isModal"
@@ -38,7 +38,7 @@ export default {
     },
     isCloseOnClickModal: {
       type: Boolean,
-      default: false
+      default: true
     },
     position: {
       type: String,
@@ -47,7 +47,8 @@ export default {
   },
   data () {
     return {
-      styleObj: {}
+      styleObj: {},
+      myShow: false
     }
   },
   computed: {
@@ -60,8 +61,12 @@ export default {
 
   },
   watch: {
-    isShow (){
+    isShow (val){
+      this.myShow = val
       this.getPositionStyle()
+    },
+    myShow (val){
+      this.$emit('update:isShow', val)
     },
     dom (){
       this.getPositionStyle()
@@ -70,12 +75,12 @@ export default {
   methods: {
     getPositionStyle (){
       let dom = this.dom,
-        obj = dom.getBoundingClientRect(),
-        style = {
-          top: obj.bottom + 20 + 'px',
-          left: obj.left + 'px'
-        }
-      this.styleObj = this.pupPositionFn(obj) || style
+        obj = dom.getBoundingClientRect()
+//        style = {
+//          top: obj.bottom + 20 + 'px',
+//          left: obj.left + 'px'
+//        }
+      this.styleObj = this.pupPositionFn(obj)
     }
   }
 }

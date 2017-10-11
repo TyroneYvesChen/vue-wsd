@@ -58,7 +58,7 @@ export default {
       @include ell();
     }
     .unit{
-      color: $gray-minor;
+      color: $left-nav-item-title;
       @include ell();
     }
   }

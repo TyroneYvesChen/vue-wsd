@@ -1,10 +1,9 @@
 <template>
   <div class="downSaveConfirm" @click="closeModal($event)">
 
-    <!--<my-modal :isShow="pickerShow">-->
-      <!--<div>sdasd</div>-->
-      <!--<date-picker></date-picker>-->
-    <!--</my-modal>-->
+    <my-modal :isShow.sync="pickerShow" :isModal="true">
+      <date-picker></date-picker>
+    </my-modal>
     <right-content-tool-bar :toolBarObj="toolBarObj" @saveEvent="saveEvent"></right-content-tool-bar>
 
     <ul class="item-wrap" v-infinite-scroll="loadMore" infinite-scroll-disabled="loading" infinite-scroll-distance="20">
@@ -57,7 +56,7 @@
 
 
 
-    <my-modal :isShow="isShow" :dom="inputDom">
+    <my-modal :isShow.sync="isShow" :dom="inputDom" :pupPositionFn="pupPositionFn">
       <h1>popup {{index}}</h1>
       <p>/ ˈpɑpˌʌp /</p>
       <p>n. 弹出式; [棒]内野飞球; 自动起跳式装置</p>
@@ -74,7 +73,7 @@
   import rightContentToolBar from '../common/rightContentToolBar'
   import myModal from '../common/myModal'
   import datePicker from '../common/datePicker'
-  import spinner from '../base/spinner'
+  import spinner from '../base/spinner/spinner'
 export default {
   name: 'downSaveConfirm',
   components: {rightContentToolBar, spinner, myModal, datePicker},
@@ -99,6 +98,13 @@ export default {
 
   },
   methods: {
+    //模态框定位
+    pupPositionFn (obj){
+      return {
+        top: obj.bottom + 20 + 'px',
+        left: obj.left + 'px'
+      }
+    },
     isCheckedEvent (e, index, type){
       let objName = type ? `isCheckedObj${type}` : "isCheckedObj"
       console.log(objName)

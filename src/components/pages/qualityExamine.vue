@@ -234,7 +234,7 @@
 
 <script>
   import rightContentToolBar from '../common/rightContentToolBar'
-  import spinner from '../base/spinner'
+  import spinner from '../base/spinner/spinner'
 export default {
   name: 'qualityExamine',
   components: {rightContentToolBar, spinner},
@@ -372,6 +372,11 @@ export default {
     .right_nav{
       background-color: $item-bg;
       padding: $padding-all-small;
+      overflow-y: auto;
+      position: absolute;
+      right: 20px;
+      top: 87px;
+      bottom: 20px;
       >div, li{
         border-radius: $border-radius-default;
       }

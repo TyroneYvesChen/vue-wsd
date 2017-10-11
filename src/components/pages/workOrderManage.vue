@@ -5,7 +5,11 @@
     <ul class="item-wrap" v-infinite-scroll="loadMore" infinite-scroll-disabled="loading" infinite-scroll-distance="20">
 
       <transition-group enter-active-class="animated fadeIn">
-          <li v-for="(item, index) in list" class="item_li clearfix" @click="liClickEvent($event, index)" :class="{checked: isCheckedObj[index]}" :key="index">
+          <li v-for="(item, index) in list" class="item_li clearfix"
+              @click="liClickEvent($event, index)"
+              :class="{checked: isCheckedObj[index]}"
+              :key="index"
+              ref="modalDom">
             <div class="content_detail">
               <div class="detail_title clearfix">
                 <div class="col-6" :class="{checked: isCheckedObj[index]}">熊猫熊猫熊猫熊猫熊猫熊猫熊猫</div>
@@ -41,7 +45,8 @@
 
             <div class="btn_group">
               <transition enter-active-class="animated fadeIn" leave-active-class="animated fadeOut">
-                  <btn-group v-show="isCheckedObj[index]"></btn-group>
+                  <btn-group v-show="isCheckedObj[index]"
+                             @technologyStandard="technologyStandard(index)"></btn-group>
               </transition>
             </div>
 
@@ -53,17 +58,20 @@
     </ul>
 
     <spinner></spinner>
-
+    <v-modal :isShow.sync="isShow" class="modalStyle" :dom="domChecked" :isModal="true">
+      进行下一步操作
+    </v-modal>
   </div>
 </template>
 
 <script>
   import rightContentToolBar from '../common/rightContentToolBar'
   import btnGroup from '../common/btnGroup'
-  import spinner from '../base/spinner'
+  import spinner from '../base/spinner/spinner'
+  import vModal from '../common/myModal'
 export default {
   name: 'workOrderManage',
-  components: {rightContentToolBar, spinner, btnGroup},
+  components: {rightContentToolBar, spinner, btnGroup, vModal},
   data () {
     return {
       list: [0,1,,,,,,],
@@ -73,13 +81,23 @@ export default {
         topTitle: "工单管理"
       },
       isChecked: false,
-      isCheckedObj: {}
+      isCheckedObj: {},
+      isShow: false,
+      domChecked: document.body
     }
   },
   created (){
 
   },
+  computed: {
+  },
+  watch: {
+  },
   methods: {
+    technologyStandard (index){
+      this.isShow = true
+      this.domChecked = this.$refs.modalDom[index]
+    },
     liClickEvent (e, index){
 //      this.isChecked = !this.isChecked
       for (let k in this.isCheckedObj){
@@ -109,6 +127,14 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang='scss' rel="stylesheet/scss" type="text/css" scoped>
+  .modalStyle{
+    height: 300px;
+    width: 300px!important;
+    line-height: 300px;
+    font-size: $title-fontSize;
+    background-color: #ccc;
+    display: block;
+  }
   .workOrderManage{
     padding-bottom: 20px;
     .item-wrap{

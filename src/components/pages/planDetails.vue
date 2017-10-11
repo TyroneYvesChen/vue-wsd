@@ -57,7 +57,7 @@
 </template>
 
 <script>
-  import spinner from '../base/spinner'
+  import spinner from '../base/spinner/spinner'
 export default {
   name: 'planDetails',
   components: {spinner},

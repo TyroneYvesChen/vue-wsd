@@ -17,7 +17,7 @@ export default {
       numberSlot: [{
         flex: 1,
         defaultIndex: 0,
-        values: [23132132, 999999, 888888, "sdidjsdjasod", "跑啊跑", 5, 6],
+        values: ["Z版免税包装注意事项", "挡车工材料校验", "调牌任务更新", "辅料消耗情况", "一周设备作业"],
         className: 'slot1',
         textAlign: "left",
         className: "item"
@@ -40,7 +40,7 @@ export default {
         if (step > this.numberSlot[0].values.length - 1) {
           step = 0;
         }
-      }, 1000);
+      }, 5000);
     });
   }
 }

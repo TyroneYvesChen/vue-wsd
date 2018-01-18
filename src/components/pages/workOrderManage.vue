@@ -12,11 +12,11 @@
               ref="modalDom">
             <div class="content_detail">
               <div class="detail_title clearfix">
-                <div class="col-6" :class="{checked: isCheckedObj[index]}">熊猫熊猫熊猫熊猫熊猫熊猫熊猫</div>
+                <div class="col-6" :class="{checked: isCheckedObj[index]}">{{ item.title }}</div>
                 <div class="col-6 state">状态：等待</div>
               </div>
 
-              <div class="detail_code col-12">yioup][uyfgiop[]\[uiyfio</div>
+              <div class="detail_code col-12">{{ item.id }}</div>
 
               <div class="detail_plan clearfix">
                 <div class="col-6">
@@ -37,7 +37,7 @@
 
                 <div class="col-6 output">
                   计划产量：
-                  <span>233</span>
+                  <span>{{ item.num }}</span>
                   万支
                 </div>
               </div>
@@ -67,14 +67,45 @@
 <script>
   import rightContentToolBar from '../common/rightContentToolBar'
   import btnGroup from '../common/btnGroup'
-  import spinner from '../base/spinner/spinner'
+  import spinner from '../base/spinner'
   import vModal from '../common/myModal'
 export default {
   name: 'workOrderManage',
   components: {rightContentToolBar, spinner, btnGroup, vModal},
   data () {
     return {
-      list: [0,1,,,,,,],
+      list: [
+        {
+          title: "中华（软）条烟",
+          id: "107615YCJJ801_JB_1",
+          num: 359
+        },
+        {
+          title: "熊猫（硬5盒时代版出口）C版Ck-条烟",
+          id: "107615YCJJ801_JB_1",
+          num: 233
+        },
+        {
+          title: "中华（硬出口）D版格鲁吉亚版-条烟",
+          id: "107615YCJJ801_JB_1",
+          num: 285
+        },
+        {
+          title: "中华（软）条烟",
+          id: "107615YCJJ801_JB_1",
+          num: 326
+        },
+        {
+          title: "熊猫（硬5盒时代版出口）C版Ck-条烟",
+          id: "107615YCJJ801_JB_1",
+          num: 260
+        },
+        {
+          title: "中华（硬出口）D版格鲁吉亚版-条烟",
+          id: "107615YCJJ801_JB_1",
+          num: 219
+        }
+        ],
       loading: false,      //设置成false使用
       toolBarObj: {
         isSave: false,
@@ -111,9 +142,10 @@ export default {
       }
       this.loading = true;
       setTimeout(() => {
-        let last = this.list[this.list.length - 1];
+        let last;
         for (let i = 1; i <= 10; i++) {
-          this.list.push(last + i);
+          last = this.list[this.list.length % 6]
+          this.list.push(last);
         }
         this.loading = false;
       }, 1000);

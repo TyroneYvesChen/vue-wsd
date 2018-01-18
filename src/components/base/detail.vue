@@ -1,7 +1,8 @@
 <template>
   <div class="detail clearfix">
     <div class="detail_name">{{ detailOptions.name }}</div>
-    <div class="detail_content">{{ detailOptions.content }}</div>
+    <!--<div class="detail_content">{{ detailOptions.content }}</div>-->
+    <div>{{ detailOptions.content }}</div>
   </div>
 </template>
 
@@ -37,12 +38,16 @@ export default {
   .detail{
     width: 100%;
     //font-weight: $font-weight-default;
-    font-size: $content-fontSize;
+    font-size: $content-fontSize2;
     padding-bottom: 8px;
+    text-align: left;
     @include ell();
+
+
     .detail_name{
       width: 45%;
       text-align: right;
+      @include ell();
       float: left;
     }
     .detail_content{

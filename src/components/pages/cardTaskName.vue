@@ -34,7 +34,7 @@
 <script>
   import rightContentToolBar from '../common/rightContentToolBar'
   import btnGroup from '../common/btnGroup'
-  import spinner from '../base/spinner/spinner'
+  import spinner from '../base/spinner'
 export default {
   name: 'cardTaskName',
   components: {rightContentToolBar, spinner},

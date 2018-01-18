@@ -13,7 +13,7 @@
       <detail :detailOptions="{name:'生产日期：', content: '2016-01-01'}"></detail>
     </div>
     <div class="left_nav_item">
-      <div class="item_title color-orange">中华条烟中华条烟中华条烟十五字</div>
+      <div class="item_title color-orange">中华条烟</div>
       <div class="item_content">234567_dfghjnmk_34567</div>
       <detail :detailOptions="{name:'工作状态：', content:'运行'}"></detail>
       <detail :detailOptions="{name:'生产标识：', content:'正常'}"></detail>
@@ -26,10 +26,7 @@
         <div class="detail_content">万支</div>
       </div>
       <div class="leftNavSignWrap">
-        <left-nav-sign></left-nav-sign>
-        <left-nav-sign></left-nav-sign>
-        <left-nav-sign></left-nav-sign>
-        <left-nav-sign></left-nav-sign>
+        <left-nav-sign v-for="(item, index) in leftNavSign" :leftNavSign="item" :key="index"></left-nav-sign>
       </div>
     </div>
 
@@ -71,6 +68,28 @@
       images: [
         'https://img.yzcdn.cn/upload_files/2017/03/14/FmTPs0SeyQaAOSK1rRe1sL8RcwSY.jpeg',
         'https://img.yzcdn.cn/upload_files/2017/03/15/FvexrWlG_WxtCE9Omo5l27n_mAG_.jpeg'
+      ],
+      leftNavSign: [
+        {
+          title: "定额车速",
+          numberVal: "57.6",
+          unit: "万支/每小时"
+        },
+        {
+          title: "实际车速",
+          numberVal: "50",
+          unit: "万支/每小时"
+        },
+        {
+          title: "停机次数",
+          numberVal: "10",
+          unit: "次"
+        },
+        {
+          title: "停机时间",
+          numberVal: "20",
+          unit: "分钟"
+        }
       ]
     }
   },
@@ -107,10 +126,11 @@
     top: 0px;
     left: 0px;
     bottom: 0px;
-    width: $left-nav-width;
+    /*width: $left-nav-width;*/
+    width: $left-nav-min-width;
     background-color: $left-nav-bg;
     text-align: center;
-    padding: 15px 25px;
+    padding: 15px 15px;
     overflow: hidden;
     .left_nav_item{
       display: block;

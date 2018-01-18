@@ -10,7 +10,7 @@
       <li class="user">
         <img src="../../assets/img/rightHeaderNav/worker.png"/>
         <div class="userInformation">
-          <div class="idNum">TY8888</div>
+          <div class="idNum">10682</div>
           <div class="workType">挡车工</div>
         </div>
       </li>

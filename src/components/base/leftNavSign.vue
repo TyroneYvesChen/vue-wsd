@@ -15,8 +15,8 @@ export default {
       default (){
         return {
           title: "定额车速",
-          numberVal: "111",
-          unit: "公里"
+          numberVal: "62",
+          unit: "万支/每小时"
         }
       }
     }

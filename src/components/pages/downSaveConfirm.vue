@@ -57,10 +57,9 @@
 
 
     <my-modal :isShow.sync="isShow" :dom="inputDom" :pupPositionFn="pupPositionFn">
-      <h1>popup {{index}}</h1>
-      <p>/ ˈpɑpˌʌp /</p>
-      <p>n. 弹出式; [棒]内野飞球; 自动起跳式装置</p>
-      <p>adj. 弹起的; 有自动起跳装置的</p>
+      <h1>正常</h1>
+      <h1>异常（隐患）</h1>
+      <h1>故障</h1>
     </my-modal>
 
 
@@ -73,7 +72,7 @@
   import rightContentToolBar from '../common/rightContentToolBar'
   import myModal from '../common/myModal'
   import datePicker from '../common/datePicker'
-  import spinner from '../base/spinner/spinner'
+  import spinner from '../base/spinner'
 export default {
   name: 'downSaveConfirm',
   components: {rightContentToolBar, spinner, myModal, datePicker},
@@ -85,7 +84,7 @@ export default {
       checked: true,
       toolBarObj: {
         isSave: true,
-        topTitle: "挡车工材料校验"
+        topTitle: "材料下存确认"
       },
       index: 0,
       inputDom: null,
@@ -106,6 +105,7 @@ export default {
       }
     },
     isCheckedEvent (e, index, type){
+      return
       let objName = type ? `isCheckedObj${type}` : "isCheckedObj"
       console.log(objName)
       this.$set(this[objName],index,!this[objName][index])
@@ -196,7 +196,10 @@ export default {
         }
         .input{
           padding: $padding-small;
+
           input{
+            padding-left: 10px;
+            font-size: $content-fontSize;
             height: $input-default;
             border-radius: 5px;
             border: 1px solid #999;
@@ -219,9 +222,21 @@ export default {
     padding: 10px;
     transform: translate(-50%, 0);
     box-shadow: #ccc 1px 1px 25px 6px;
+
     h1 {
+      width: 200px;
       font-size: 20px;
-      color: #26a2ff;
+      color: $font-color-item;
+      padding: 10px;
+      border-bottom: 1px #ccc solid;
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      &:hover{
+        color: #26a2ff;
+      }
     }
 
     p {

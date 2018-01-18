@@ -55,7 +55,7 @@ export default {
     .right_wrap {
       position: absolute;
       top: 0px;
-      left: $left-nav-width;
+      left: $left-nav-min-width;
       bottom: 0px;
       right: 0px;
       background-color: $right-wrap-bg;

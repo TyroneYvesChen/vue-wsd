@@ -234,7 +234,7 @@
 
 <script>
   import rightContentToolBar from '../common/rightContentToolBar'
-  import spinner from '../base/spinner/spinner'
+  import spinner from '../base/spinner'
 export default {
   name: 'qualityExamine',
   components: {rightContentToolBar, spinner},
